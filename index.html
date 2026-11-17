@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr. Filipe Linhares · Ultrassom em Cascavel e Toledo</title>
+<meta name="description" content="Onde fazer o seu ultrassom com o Dr. Filipe Linhares em Cascavel e Toledo (PR), e quando fazer cada exame da gestação.">
+<link rel="icon" href="favicon.png">
+<meta property="og:title" content="Dr. Filipe Linhares · Ultrassom em Cascavel e Toledo">
+<meta property="og:description" content="Escolha o local e agende pelo WhatsApp.">
+<meta property="og:image" content="icone-verde.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --verde:#2e4234;      /* marca: fundo do topo, botões */
+    --creme:#fffaf4;      /* marca: fundo e texto sobre verde */
+    --tinta:#1f2e24;      /* texto corrido */
+    --salvia:#7f957f;     /* traços secundários da régua */
+    --janela:#dfe7dc;     /* faixas das janelas de exame */
+    --papel:#f4ede2;      /* seção da régua */
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+  body{font-family:Montserrat,system-ui,sans-serif;background:var(--creme);color:var(--tinta);font-size:17px;line-height:1.55}
+  a{color:inherit}
+  :focus-visible{outline:3px solid #c9a227;outline-offset:3px;border-radius:4px}
+  .col{max-width:34rem;margin:0 auto;padding:0 22px}
+
+  /* ---------- topo ---------- */
+  .topo{background:var(--verde);color:var(--creme);padding:40px 0 36px}
+  .marca{display:flex;align-items:center;gap:14px}
+  .marca img{width:52px;height:52px}
+  .marca b{display:block;font-weight:500;font-size:18px;letter-spacing:.3px}
+  .marca span{display:block;font-size:14px;font-weight:300;opacity:.85}
+  .topo h1{margin-top:38px;font-weight:300;font-size:clamp(34px,9vw,46px);line-height:1.1;letter-spacing:-.5px}
+  .topo p{margin-top:16px;font-weight:300;font-size:18px;max-width:28rem;opacity:.92}
+
+  .cidades{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .cidades button{font:inherit;font-weight:500;font-size:17px;padding:15px 10px;border-radius:999px;cursor:pointer;
+    background:transparent;color:var(--creme);border:1.5px solid rgba(255,250,244,.6);min-height:52px}
+  .cidades button[aria-pressed="true"]{background:var(--creme);color:var(--verde);border-color:var(--creme)}
+
+  /* ---------- locais ---------- */
+  .locais{padding:30px 0 10px}
+  .local{padding:24px 0;border-bottom:1px solid #e6dfd3}
+  .local:last-child{border-bottom:0}
+  .local h2{font-size:20px;font-weight:500;line-height:1.25}
+  .local .end{margin-top:6px;font-size:15.5px;color:#4a5a4e}
+  .local .end a{text-underline-offset:3px;text-decoration-color:#b9c4b6}
+  .zap{margin-top:16px;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+    background:var(--verde);color:var(--creme);text-decoration:none;font-weight:500;font-size:17px;
+    padding:16px 18px;border-radius:14px;min-height:56px}
+  .zap svg{width:22px;height:22px;flex:none}
+  .zap:active{transform:translateY(1px)}
+  .local[hidden]{display:none}
+  .dica{font-size:14px;color:#5d6b60;padding:4px 0 26px}
+
+  /* ---------- régua da gestação ---------- */
+  .regua{background:var(--papel);padding:44px 0 46px}
+  .regua h2{font-weight:300;font-size:clamp(28px,7.4vw,36px);line-height:1.15}
+  .regua .intro{margin-top:10px;color:#4a5a4e}
+  .semanas{margin-top:26px;display:flex;align-items:center;gap:12px}
+  .semanas span{font-weight:500;font-size:18px}
+  .oculto{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .passo{display:flex;align-items:center;border:1.5px solid var(--verde);border-radius:14px;overflow:hidden;background:var(--creme)}
+  .passo button{font:inherit;font-size:24px;line-height:1;width:52px;height:52px;border:0;background:transparent;color:var(--verde);cursor:pointer}
+  .passo input{width:64px;height:52px;border:0;border-left:1px solid #d5d9cf;border-right:1px solid #d5d9cf;text-align:center;
+    font:inherit;font-size:22px;font-weight:500;color:var(--tinta);background:transparent;-moz-appearance:textfield}
+  .passo input::-webkit-outer-spin-button,.passo input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+
+  .trilho{position:relative;margin:34px 4px 0;height:96px}
+  .trilho .linha{position:absolute;left:0;right:0;top:44px;height:2px;background:var(--verde)}
+  .trilho .tick{position:absolute;top:38px;width:1px;height:14px;background:var(--salvia)}
+  .trilho .tick.g{top:34px;height:22px;background:var(--verde)}
+  .trilho .num{position:absolute;top:64px;transform:translateX(-50%);font-size:12px;color:#5d6b60}
+  .trilho .jan{position:absolute;top:26px;height:38px;background:var(--janela);border-radius:6px}
+  .trilho .jan.ativa{background:var(--verde)}
+  .voce{position:absolute;top:0;transform:translateX(-50%);transition:left .35s ease;text-align:center;pointer-events:none}
+  .voce i{display:block;width:2px;height:70px;margin:0 auto;background:#9c4318}
+  .voce b{display:block;position:absolute;top:-24px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:13px;font-weight:600;color:#9c4318}
+  .voce[hidden]{display:none}
+
+  .resposta{margin-top:24px;min-height:7.5em}
+  .resposta strong{display:block;font-size:20px;font-weight:500;line-height:1.3}
+  .resposta p{margin-top:6px;color:#3d4c41}
+  .resposta a{font-weight:500}
+
+  .exames{margin-top:26px;list-style:none;border-top:1px solid #ddd3c3}
+  .exames li{display:grid;grid-template-columns:6.2rem 1fr;gap:12px;padding:13px 0;border-bottom:1px solid #ddd3c3}
+  .exames .q{font-weight:600;font-size:15px;color:var(--verde);font-variant-numeric:tabular-nums}
+  .exames .o{font-size:15.5px}
+  .exames li.ativa .o{font-weight:600}
+  .aviso{margin-top:16px;font-size:14px;color:#5d6b60}
+
+  /* ---------- sobre e rodapé ---------- */
+  .sobre{padding:44px 0 20px}
+  .sobre h2{font-weight:300;font-size:28px;line-height:1.2}
+  .sobre p{margin-top:12px}
+  .rodape{background:var(--verde);color:var(--creme);padding:34px 0 40px;margin-top:30px;font-size:14px;line-height:1.7}
+  .rodape .assin b{font-weight:500;font-size:16px}
+  .rodape .ig{display:inline-block;margin-top:16px;text-underline-offset:3px}
+  .rodape small{display:block;margin-top:16px;opacity:.75;font-size:12.5px}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="col">
+    <div class="marca">
+      <img src="icone-creme.png" alt="">
+      <div><b>Dr. Filipe Linhares</b><span>Médico, Ginecologia e Obstetrícia</span></div>
+    </div>
+    <h1>Onde fazer o seu ultrassom comigo</h1>
+    <p>Escolha a cidade, toque no local e fale com a equipe pelo WhatsApp.</p>
+    <div class="cidades" role="group" aria-label="Cidade">
+      <button type="button" data-cidade="cascavel" aria-pressed="true">Cascavel</button>
+      <button type="button" data-cidade="toledo" aria-pressed="false">Toledo</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="locais" aria-label="Locais de atendimento">
+    <div class="col" id="lista"></div>
+    <div class="col"><p class="dica">A mensagem já vai pronta. É só enviar e a equipe responde com os horários.</p></div>
+  </section>
+
+  <section class="regua" aria-labelledby="t-regua">
+    <div class="col">
+      <h2 id="t-regua">Qual ultrassom você faz agora?</h2>
+      <p class="intro">Diga com quantas semanas você está e veja o próximo exame da gestação.</p>
+
+      <div class="semanas">
+        <label for="sem" class="oculto">Semanas de gestação</label>
+        <div class="passo">
+          <button type="button" id="menos" aria-label="Uma semana a menos">−</button>
+          <input id="sem" type="number" inputmode="numeric" min="4" max="41" placeholder="?">
+          <button type="button" id="mais" aria-label="Uma semana a mais">+</button>
+        </div>
+        <span>semanas</span>
+      </div>
+
+      <div class="trilho" id="trilho" aria-hidden="true">
+        <div class="linha"></div>
+        <div class="voce" id="voce" hidden><b>você</b><i></i></div>
+      </div>
+
+      <div class="resposta" id="resposta" aria-live="polite">
+        <strong>Use o + e o − para marcar a sua semana.</strong>
+        <p>Se não souber ao certo, conte a partir do primeiro dia da última menstruação.</p>
+      </div>
+
+      <ul class="exames" id="exames"></ul>
+      <p class="aviso">Essas são as datas mais usadas. Quem define o seu calendário é o médico que faz o seu pré-natal.</p>
+    </div>
+  </section>
+
+  <section class="sobre" aria-labelledby="t-sobre">
+    <div class="col">
+      <h2 id="t-sobre">Sobre mim</h2>
+      <p>Sou médico ginecologista e obstetra em Cascavel e Toledo. Faço os ultrassons da gestação, do primeiro exame ao fim do pré-natal, incluindo a translucência nucal, os morfológicos e o Doppler.</p>
+      <p>No Instagram eu explico, sem complicação, para que serve cada exame e quando fazer.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="col">
+    <div class="assin"><b>Dr. Filipe Linhares</b><br>Médico<br>Ginecologia e Obstetrícia<br>CRM-PR 42.727<br>RQE 32.372</div>
+    <a class="ig" href="https://www.instagram.com/filipe.linhares/">Instagram: @filipe.linhares</a>
+    <small>Conteúdo educativo. Não substitui a consulta e a avaliação médica.</small>
+  </div>
+</footer>
+
+<script>
+const MSG = encodeURIComponent("Olá! Vi o Dr. Filipe Linhares no Instagram e gostaria de agendar um ultrassom.");
+const LOCAIS = [
+  {cidade:"cascavel", nome:"Clínica de Ultrassonografia Toledo, unidade Cascavel", end:"Rua Belo Horizonte, 501, Ciro Nardi", zap:"5545991479449"},
+  {cidade:"cascavel", nome:"Centro Avançado de Diagnóstico da Mulher", end:"Rua Paraná, 2172, Centro", zap:"5545999813324"},
+  {cidade:"cascavel", nome:"Centro Médico Farah", end:"Rua Mato Grosso, 1732, Centro", zap:"5545999931615"},
+  {cidade:"toledo", nome:"Clínica de Ultrassonografia Toledo", end:"Rua Independência, 1839, sala 1, Edifício Lamartine, Centro", zap:"5545991438965"}
+];
+const ZAP_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 8.6c0 3.3 2.9 6.3 6.3 6.4l1.2-1.4-1.9-1-1 .8c-1-.4-2.2-1.6-2.6-2.6l.8-1-1-1.9z"/></svg>';
+const lista = document.getElementById("lista");
+lista.innerHTML = LOCAIS.map(l => {
+  const mapa = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(l.end + ", " + (l.cidade === "toledo" ? "Toledo" : "Cascavel") + " - PR");
+  return `<article class="local" data-cidade="${l.cidade}">
+    <h2>${l.nome}</h2>
+    <p class="end"><a href="${mapa}" target="_blank" rel="noopener">${l.end}</a></p>
+    <a class="zap" href="https://wa.me/${l.zap}?text=${MSG}" target="_blank" rel="noopener">${ZAP_SVG}Agendar pelo WhatsApp</a>
+  </article>`;
+}).join("");
+
+const botoes = document.querySelectorAll(".cidades button");
+function cidade(c){
+  botoes.forEach(b => b.setAttribute("aria-pressed", b.dataset.cidade === c));
+  lista.querySelectorAll(".local").forEach(el => el.hidden = el.dataset.cidade !== c);
+  try{ localStorage.setItem("lp-cidade", c) }catch(e){}
+}
+botoes.forEach(b => b.addEventListener("click", () => cidade(b.dataset.cidade)));
+let inicial = new URLSearchParams(location.search).get("cidade");
+if (!inicial) { try{ inicial = localStorage.getItem("lp-cidade") }catch(e){} }
+cidade(inicial === "toledo" ? "toledo" : "cascavel");
+
+/* ---------- régua ---------- */
+const MIN = 4, MAX = 40;
+const EXAMES = [
+  {de:7,  ate:10, q:"7 a 10 sem",    j:"7 e 10 semanas", nome:"Ultrassom inicial", o:"batimentos e idade da gestação"},
+  {de:11, ate:13.86, q:"11 a 13s6d", j:"11 semanas e 13 semanas e 6 dias", nome:"Morfológico do 1º trimestre", o:"com translucência nucal e cálculo de riscos"},
+  {de:20, ate:24, q:"20 a 24 sem",   j:"20 e 24 semanas", nome:"Morfológico do 2º trimestre", o:"a anatomia do bebê, órgão por órgão"},
+  {de:32, ate:36, q:"32 a 36 sem",   j:"32 e 36 semanas", nome:"Crescimento e Doppler", o:"peso, líquido e circulação"}
+];
+const trilho = document.getElementById("trilho");
+const pos = s => ((s - MIN) / (MAX - MIN) * 100) + "%";
+let html = "";
+EXAMES.forEach((e,i) => html += `<div class="jan" data-i="${i}" style="left:${pos(e.de)};width:calc(${pos(e.ate)} - ${pos(e.de)})"></div>`);
+for (let s = MIN; s <= MAX; s += 2) {
+  const g = s % 10 === 0 || s === MIN;
+  html += `<div class="tick${g ? " g" : ""}" style="left:${pos(s)}"></div>`;
+  if (g) html += `<div class="num" style="left:${pos(s)}">${s}</div>`;
+}
+trilho.insertAdjacentHTML("beforeend", html);
+document.getElementById("exames").innerHTML = EXAMES.map((e,i) =>
+  `<li data-i="${i}"><span class="q">${e.q}</span><span class="o"><b>${e.nome}</b>, ${e.o}</span></li>`).join("");
+
+const inp = document.getElementById("sem"), voce = document.getElementById("voce"), resp = document.getElementById("resposta");
+const LINK = ' <a href="#lista">Ver onde agendar</a>';
+const min1 = s => s[0].toLowerCase() + s.slice(1);
+function atualizar(){
+  const s = parseInt(inp.value, 10);
+  document.querySelectorAll(".jan, .exames li").forEach(el => el.classList.remove("ativa"));
+  if (isNaN(s)) { voce.hidden = true; return; }
+  const w = Math.min(Math.max(s, MIN), 41);
+  voce.hidden = false; voce.style.left = pos(Math.min(w, MAX));
+  const agora = EXAMES.findIndex(e => w >= e.de && w <= e.ate);
+  const prox = EXAMES.findIndex(e => e.de > w);
+  const marca = i => document.querySelectorAll(`[data-i="${i}"]`).forEach(el => el.classList.add("ativa"));
+  let t, p;
+  if (agora >= 0) {
+    const e = EXAMES[agora]; marca(agora);
+    t = `Você está na época do ${min1(e.nome)}.`;
+    p = `Ele é feito entre ${e.j}. Se ainda não agendou, este é o momento.` + LINK;
+  } else if (prox >= 0) {
+    const e = EXAMES[prox], falta = e.de - w; marca(prox);
+    t = `Seu próximo exame: ${min1(e.nome)}.`;
+    p = `Ele é feito entre ${e.j}. ` +
+        (falta <= 2 ? "Já dá para agendar." : `Faltam cerca de ${falta} semanas. Vale agendar com antecedência.`) + LINK;
+    if (w < 7) p = `Antes de 7 semanas o bebê ainda pode não aparecer bem no ultrassom. ` + p;
+  } else {
+    t = "Reta final da gestação.";
+    p = "A partir daqui, o ultrassom é pedido conforme a necessidade de cada gestação. Combine com o seu médico do pré-natal.";
+  }
+  resp.innerHTML = `<strong>${t}</strong><p>${p}</p>`;
+}
+function passo(d){
+  const s = parseInt(inp.value, 10);
+  inp.value = isNaN(s) ? 12 : Math.min(41, Math.max(MIN, s + d));
+  atualizar();
+}
+document.getElementById("menos").addEventListener("click", () => passo(-1));
+document.getElementById("mais").addEventListener("click", () => passo(1));
+inp.addEventListener("input", atualizar);
+</script>
+</body>
+</html>
