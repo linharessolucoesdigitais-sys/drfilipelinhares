@@ -25,7 +25,11 @@
   "url": "https://linharessolucoesdigitais-sys.github.io/drfilipelinhares/",
   "image": "https://linharessolucoesdigitais-sys.github.io/drfilipelinhares/icone-verde.png",
   "sameAs": ["https://www.instagram.com/filipe.linhares/"],
-  "knowsAbout": ["Ginecologia", "Obstetrícia", "Ultrassom obstétrico", "Ultrassom morfológico", "Translucência nucal", "Doppler obstétrico"],
+  "knowsAbout": ["Ginecologia", "Obstetrícia", "Pré-natal", "Ultrassom obstétrico", "Ultrassom morfológico", "Translucência nucal", "Doppler obstétrico", "Ultrassom ginecológico", "Ultrassom de mamas"],
+  "alumniOf": [
+    {"@type": "CollegeOrUniversity", "name": "Universidade Estadual de Ponta Grossa (UEPG)"},
+    {"@type": "Hospital", "name": "Hospital Universitário do Oeste do Paraná (HUOP/Unioeste)"}
+  ],
   "workLocation": [
     {"@type": "MedicalClinic", "name": "Clínica de Ultrassonografia Toledo – unidade Cascavel", "telephone": "+55-45-99147-9449",
      "address": {"@type": "PostalAddress", "streetAddress": "Rua Belo Horizonte, 501", "addressLocality": "Cascavel", "addressRegion": "PR", "addressCountry": "BR"}},
@@ -128,6 +132,9 @@
   .sobre{padding:44px 0 20px}
   .sobre h2{font-weight:300;font-size:28px;line-height:1.2}
   .sobre p{margin-top:12px}
+  .servicos{margin-top:10px;list-style:none;border-top:1px solid #e6dfd3}
+  .servicos li{padding:11px 0 11px 22px;border-bottom:1px solid #e6dfd3;position:relative}
+  .servicos li::before{content:"";position:absolute;left:2px;top:1.15em;width:8px;height:8px;border-radius:50%;border:1.5px solid var(--verde)}
   .rodape{background:var(--verde);color:var(--creme);padding:34px 0 40px;margin-top:30px;font-size:14px;line-height:1.7}
   .rodape .assin b{font-weight:500;font-size:16px}
   .rodape .ig{display:inline-block;margin-top:16px;text-underline-offset:3px}
@@ -190,7 +197,14 @@
   <section class="sobre" aria-labelledby="t-sobre">
     <div class="col">
       <h2 id="t-sobre">Sobre mim</h2>
-      <p>Sou médico ginecologista e obstetra em Cascavel e Toledo. Faço os ultrassons da gestação, do primeiro exame ao fim do pré-natal, incluindo a translucência nucal, os morfológicos e o Doppler.</p>
+      <p>Sou médico formado pela Universidade Estadual de Ponta Grossa (UEPG), em 2019, e fiz residência médica em Ginecologia e Obstetrícia no Hospital Universitário do Oeste do Paraná, ligado à Unioeste, concluída em 2023.</p>
+      <p>Hoje atendo em Cascavel e Toledo:</p>
+      <ul class="servicos">
+        <li>Consultas de ginecologia e obstetrícia</li>
+        <li>Ultrassons da gestação, do primeiro exame ao fim do pré-natal: translucência nucal, morfológicos e Doppler</li>
+        <li>Ultrassom ginecológico</li>
+        <li>Ultrassom de mamas</li>
+      </ul>
       <p>No Instagram eu explico, sem complicação, para que serve cada exame e quando fazer.</p>
     </div>
   </section>
